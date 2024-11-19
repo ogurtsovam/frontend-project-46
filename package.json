@@ -1,12 +1,8 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/ogurtsovam/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ogurtsovam/frontend-project-46/actions)",
+  "description": "",
   "type": "module",
-  "name": "frontend-project-46",
-  "version": "1.0.0",
-  "type": "module",
-
   "main": "index.js",
   "bin": {
     "gendiff": "./bin/gendiff.js"
