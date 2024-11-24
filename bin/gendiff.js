@@ -3,6 +3,7 @@ import { program } from 'commander';
 import path from 'path';
 import fs from 'fs';
 import parseFiles from '../src/parseFiles.js';
+import compareFlatObj from '../src/compareFlatObj.js';
 
 program
   .name('gendiff')
@@ -10,7 +11,7 @@ program
   .version('1.0.0')
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format [type]', 'output format')
-  .action((filepath1, filepath2, options) => {
+  .action((filepath1, filepath2) => {
     try {
       const absolutePath1 = path.resolve(process.cwd(), filepath1);
       const absolutePath2 = path.resolve(process.cwd(), filepath2);
@@ -26,8 +27,9 @@ program
       // console.log(result);
       const parseFile1 = parseFiles(filepath1);
       const parseFile2 = parseFiles(filepath2);
-      console.log(`File1: ${parseFile1}`);
-      console.log(`File2: ${parseFile2}`);
+      const compareObj =  compareFlatObj(parseFile1, parseFile2);
+      console.log(compareObj);
+  
 
 
     } catch (error) {
