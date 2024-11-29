@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import path from 'path';
-import fs from 'fs';
-import parseFiles from '../src/parseFiles.js';
+import parseFile from '../src/parseFile.js';
 import compareFlatObj from '../src/compareFlatObj.js';
 
 program
@@ -13,24 +11,10 @@ program
   .option('-f, --format [type]', 'output format')
   .action((filepath1, filepath2) => {
     try {
-      const absolutePath1 = path.resolve(process.cwd(), filepath1);
-      const absolutePath2 = path.resolve(process.cwd(), filepath2);
-
-      if (!fs.existsSync(absolutePath1)) {
-        throw new Error(`File not found: ${absolutePath1}`);
-      }
-      if (!fs.existsSync(absolutePath2)) {
-        throw new Error(`File not found: ${absolutePath2}`);
-      }
-
-      // const result = compareFiles(absolutePath1, absolutePath2);
-      // console.log(result);
-      const parseFile1 = parseFiles(filepath1);
-      const parseFile2 = parseFiles(filepath2);
-      const compareObj =  compareFlatObj(parseFile1, parseFile2);
-      console.log(compareObj);
-  
-
+      const parsedFile1 = parseFile(filepath1);
+      const parsedFile2 = parseFile(filepath2);
+      const diff = compareFlatObj(parsedFile1, parsedFile2);
+      console.log(diff);
 
     } catch (error) {
       console.error(error.message);

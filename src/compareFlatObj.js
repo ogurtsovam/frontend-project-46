@@ -1,28 +1,30 @@
 export default function compareFlatObj(obj1, obj2) {
-  const result = [];
+  const diff = [];
   const allUniqueKeys = new Set([...Object.keys(obj1), ...Object.keys(obj2)]);
 
   for (const key of allUniqueKeys) {
     if (!Object.hasOwn(obj2, key)) {
-      result.push({ attribute: '-', key, value: obj1[key] });
+      diff.push({ action: '-', key, value: obj1[key] });
     } else if (!Object.hasOwn(obj1, key)) {
-      result.push({ attribute: '+', key, value: obj2[key] });
+      diff.push({ action: '+', key, value: obj2[key] });
     } else if (obj1[key] === obj2[key]) {
-      result.push({ attribute: '', key, value: obj1[key] });
+      diff.push({ action: ' ', key, value: obj1[key] });
     }  else if (obj1[key] !== obj2[key]) {
-      result.push({ attribute: '-', key, value: obj1[key] });
-      result.push({ attribute: '+', key, value: obj2[key] });
+      diff.push({ action: '-', key, value: obj1[key] });
+      diff.push({ action: '+', key, value: obj2[key] });
     }
   }
 
-  return resultToString(result);
+  return formatDiff(diff);
 }
 
-function resultToString(result) {
-  return result
-    .map(({ attribute, key, value }) => {
-      const prefix = attribute === '' ? ' ' : attribute;
+function formatDiff(diff) {
+  const formatedDiff = diff
+    .map(({ action, key, value }) => {
+      const prefix = action === '' ? ' ' : action;
       return `  ${prefix} ${key}: ${value}`;
     })
     .join('\n');
+
+  return `{\n${formatedDiff}\n}`;
 }
