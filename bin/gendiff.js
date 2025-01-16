@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import parseFile from '../src/parseFile.js';
+import parseFile from '../parsers/parseFile.js';
 import compareFlatObj from '../src/compareFlatObj.js';
 
 program
