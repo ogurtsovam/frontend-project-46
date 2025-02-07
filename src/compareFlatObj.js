@@ -15,16 +15,5 @@ export default function compareFlatObj(obj1, obj2) {
     }
   }
 
-  return formatDiff(diff);
-}
-
-function formatDiff(diff) {
-  const formatedDiff = diff
-    .map(({ action, key, value }) => {
-      const prefix = action === '' ? ' ' : action;
-      return `  ${prefix} ${key}: ${value}`;
-    })
-    .join('\n');
-
-  return `{\n${formatedDiff}\n}`;
+  return diff;
 }
