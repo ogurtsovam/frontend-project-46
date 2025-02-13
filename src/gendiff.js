@@ -8,7 +8,7 @@ const getFilePath = (fileName) => path.resolve(process.cwd(), fileName);
 const getFileExtension = (fileName) => fileName.split('.')[1].trim();
 const readFile = (filePath) => fs.readFileSync(filePath, 'utf-8');
 
-export default function gendiff(filePath1, filePath2, formatName = 'stylish') {
+export default function genDiff(filePath1, filePath2, formatName = 'stylish') {
   const dataFile1 = getFilePath(filePath1);
   const dataFile2 = getFilePath(filePath2);
 
