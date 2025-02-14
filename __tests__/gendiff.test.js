@@ -1,7 +1,7 @@
 import fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import gendiff from '../src/gendiff.js';
+import { genDiff } from '../src/gendiff.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,7 +14,7 @@ test.each(fileFormat)('compare files', (format) => {
   const file1 = getFilePath(`file1.${format}`);
   const file2 = getFilePath(`file2.${format}`);
 
-  expect(gendiff(file1, file2, 'stylish')).toEqual(getExpectedResult('expected_result_stylish.txt'));
-  expect(gendiff(file1, file2, 'plain')).toEqual(getExpectedResult('expected_result_plain.txt'));
-  expect(gendiff(file1, file2, 'json')).toEqual(getExpectedResult('expected_result_json.json'));
+  expect(genDiff(file1, file2, 'stylish')).toEqual(getExpectedResult('expected_result_stylish.txt'));
+  expect(genDiff(file1, file2, 'plain')).toEqual(getExpectedResult('expected_result_plain.txt'));
+  expect(genDiff(file1, file2, 'json')).toEqual(getExpectedResult('expected_result_json.json'));
 });
