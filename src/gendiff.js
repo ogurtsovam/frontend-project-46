@@ -20,4 +20,4 @@ function genDiff(filePath1, filePath2, formatName = 'stylish') {
   return styling(diffOutput, formatName);
 };
 
-export { genDiff } ;
+export default genDiff ;
