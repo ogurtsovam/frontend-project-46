@@ -1,5 +1,6 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
+import fp from 'eslint-plugin-fp';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -11,6 +12,9 @@ export default [
         ...globals.jest,
       },
     },
+    plugins: {
+      fp,
+    },
     rules: {
       'eol-last': ['error', 'always'],
       'quotes': ['error', 'single'],
@@ -19,6 +23,8 @@ export default [
       'space-before-function-paren': ['error', 'never'],
       'semi-spacing': ['error', { 'before': false, 'after': true }],
       'no-restricted-syntax': ['error', 'ForStatement'],
+      'fp/no-loops': 'error',
+      'fp/no-mutating-methods': 'error',
     },
   },
   pluginJs.configs.recommended,
