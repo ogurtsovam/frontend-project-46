@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const getOffset = (level, replacer = ' ', setGap = 4) => replacer.repeat(level * setGap);
 
-function stringify (value, level) {
+function stringify(value, level) {
   if (!_.isObject(value)) {
     return `${value}`;
   }
@@ -15,9 +15,9 @@ function stringify (value, level) {
   return [
     '{', ...rows, `${bracketOffset}}`,
   ].join('\n');
-};
+}
 
-export default function stylish (diffOutput, level = 1) {
+export default function stylish(diffOutput, level = 1) {
   const offset = getOffset(level).slice(0, -2);
   const bracketOffset = getOffset(level - 1);
   const rows = diffOutput.map((node) => {
@@ -45,4 +45,4 @@ export default function stylish (diffOutput, level = 1) {
   return [
     '{', ...rows, `${bracketOffset}}`,
   ].join('\n');
-};
+}

@@ -18,6 +18,6 @@ function genDiff(filePath1, filePath2, formatName = 'stylish') {
   const diffOutput = compareData(dataParsedFile1, dataParsedFile2);
 
   return styling(diffOutput, formatName);
-};
+}
 
-export default genDiff ;
+export default genDiff;

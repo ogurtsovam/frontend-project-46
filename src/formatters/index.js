@@ -13,4 +13,4 @@ export default function formatData(diffOutput, formatName) {
     default:
       throw new Error(`Output format styling <${formatName}> is not supported`);
   }
-};
+}

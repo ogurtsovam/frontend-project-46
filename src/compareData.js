@@ -16,7 +16,7 @@ export default function compareData(data1, data2) {
     }
     if (data1[key] !== data2[key]) {
       return {
-        action: 'changed', key,  value1: data1[key], value2: data2[key],
+        action: 'changed', key, value1: data1[key], value2: data2[key],
       };
     }
 
@@ -24,4 +24,4 @@ export default function compareData(data1, data2) {
   });
 
   return getDiff;
-};
+}

@@ -29,4 +29,4 @@ export default function plain(dataFile, propertyKey = '') {
     }
   });
   return rows.join('\n');
-};
+}

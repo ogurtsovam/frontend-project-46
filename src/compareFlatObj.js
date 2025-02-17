@@ -9,7 +9,7 @@ export default function compareFlatObj(obj1, obj2) {
       diff.push({ action: '+', key, value: obj2[key] });
     } else if (obj1[key] === obj2[key]) {
       diff.push({ action: ' ', key, value: obj1[key] });
-    }  else if (obj1[key] !== obj2[key]) {
+    } else if (obj1[key] !== obj2[key]) {
       diff.push({ action: '-', key, value: obj1[key] });
       diff.push({ action: '+', key, value: obj2[key] });
     }
