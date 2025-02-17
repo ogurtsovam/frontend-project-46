@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 export default function compareData(data1, data2) {
-  const keys = new Set([...Object.keys(data1), ...Object.keys(data2)]);
+  const keys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
 
   const getDiff = Array.from(keys).map((key) => {
     if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
