@@ -10,10 +10,10 @@ const stringify = (value) => {
 export default function plain(dataFile, propertyKey = '') {
   const rows = dataFile.flatMap((node) => {
     const {
-      action, key, value, value1, value2,
+      type, key, value, value1, value2,
     } = node;
     const currentKey = propertyKey ? `${propertyKey}.${key}` : key;
-    switch (action) {
+    switch (type) {
       case 'nested':
         return plain(value, currentKey);
       case 'added':
@@ -25,7 +25,7 @@ export default function plain(dataFile, propertyKey = '') {
       case 'unchanged':
         return [];
       default:
-        throw new Error(`Received node type ${action} is unknown.`);
+        throw new Error(`Received node type ${type} is unknown.`);
     }
   });
   return rows.join('\n');

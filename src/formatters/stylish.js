@@ -22,9 +22,9 @@ export default function stylish(diffOutput, level = 1) {
   const bracketOffset = getOffset(level - 1);
   const rows = diffOutput.map((node) => {
     const {
-      action, key, value, value1, value2,
+      type, key, value, value1, value2,
     } = node;
-    switch (action) {
+    switch (type) {
       case 'nested':
         return `${offset}  ${key}: ${stylish(value, level + 1)}`;
       case 'added':
@@ -39,7 +39,7 @@ export default function stylish(diffOutput, level = 1) {
       case 'unchanged':
         return `${offset}  ${key}: ${stringify(value, level + 1)}`;
       default:
-        throw new Error(`Received node type <${action}> is unknown.`);
+        throw new Error(`Received node type <${type}> is unknown.`);
     }
   });
   return [

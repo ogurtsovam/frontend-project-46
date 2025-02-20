@@ -5,9 +5,8 @@ export default function parseFile(fileContent, extention) {
     case 'json':
       return JSON.parse(fileContent);
     case 'yml':
-      return yaml.load(fileContent);
-    case 'yaml':
-      return yaml.load(fileContent);
+      case 'yaml':
+        return yaml.load(fileContent);
     default:
       throw new Error(`Unsupported extension - ${extention}`);
   }
