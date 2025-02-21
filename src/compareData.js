@@ -15,10 +15,10 @@ export default function compareData(data1, data2) {
       return { type: 'deleted', key, value: data1[key] };
     }
     if (!_.isEqual(data1[key], data2[key])) {
-      return { 
-        type: 'changed', 
-        key, 
-        value1: data1[key], 
+      return {
+        type: 'changed',
+        key,
+        value1: data1[key],
         value2: data2[key],
       };
     }
