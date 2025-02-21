@@ -11,10 +11,10 @@ const getExpectedResult = (fileName) => fs.readFileSync(getFilePath(fileName), '
 const fileFormat = ['json', 'yml'];
 
 test.each(fileFormat)('compare files', (format) => {
-  const file1 = getFilePath(`file1.${format}`);
-  const file2 = getFilePath(`file2.${format}`);
+    const file1 = getFilePath(`file1.${format}`);
+    const file2 = getFilePath(`file2.${format}`);
 
-  expect(genDiff(file1, file2, 'stylish')).toEqual(getExpectedResult('expected_result_stylish.txt'));
-  expect(genDiff(file1, file2, 'plain')).toEqual(getExpectedResult('expected_result_plain.txt'));
-  expect(genDiff(file1, file2, 'json')).toEqual(getExpectedResult('expected_result_json.json'));
+    expect(genDiff(file1, file2, 'stylish')).toEqual(getExpectedResult('expected_result_stylish.txt'));
+    expect(genDiff(file1, file2, 'plain')).toEqual(getExpectedResult('expected_result_plain.txt'));
+    expect(genDiff(file1, file2, 'json')).toEqual(getExpectedResult('expected_result_json.json'));
 });
