@@ -12,7 +12,7 @@ export default [
         ...globals.jest,
       },
     },
-    plugins:{
+    plugins: {
       fp,
     },
     rules: {
