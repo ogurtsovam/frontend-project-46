@@ -1,13 +1,13 @@
 import yaml from 'js-yaml';
 
 export default function parseFile(fileContent, extention) {
-  switch (extention) {
+    switch (extention) {
     case 'json':
-      return JSON.parse(fileContent);
+        return JSON.parse(fileContent);
     case 'yml':
-      case 'yaml':
+    case 'yaml':
         return yaml.load(fileContent);
     default:
-      throw new Error(`Unsupported extension - ${extention}`);
-  }
+        throw new Error(`Unsupported extension - ${extention}`);
+    }
 }
