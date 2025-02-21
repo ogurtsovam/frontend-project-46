@@ -28,6 +28,7 @@ export default [
       'quote-props': ['error', 'as-needed'],
       indent: ['error', 2, { SwitchCase: 1 }],
       'comma-dangle': ['error', 'always-multiline'],
+      'object-curly-newline': ['error', { consistent: true }],
     },
   },
   pluginJs.configs.recommended,
