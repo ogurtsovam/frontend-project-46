@@ -29,6 +29,7 @@ export default [
       indent: ['error', 2, { SwitchCase: 1 }],
       'comma-dangle': ['error', 'always-multiline'],
       'object-curly-newline': ['error', { consistent: true }],
+      'object-curly-spacing': ['error', 'always'],
     },
   },
   pluginJs.configs.recommended,
