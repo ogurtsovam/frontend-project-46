@@ -26,7 +26,6 @@ export default [
       'fp/no-loops': 'error',
       'fp/no-mutating-methods': 'error',
       'quote-props': ['error', 'as-needed'],
-      indent: ['error', 2],
     },
   },
   pluginJs.configs.recommended,
