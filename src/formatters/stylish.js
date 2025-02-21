@@ -17,13 +17,13 @@ function stringify(value, level) {
   ].join('\n');
 }
 
-export default function stylish(diffOutput, level = 1) {
+function formatStylish(diffOutput, level = 1) {
   const offset = getOffset(level).slice(0, -2);
   const bracketOffset = getOffset(level - 1);
   const rows = diffOutput.map((node) => {
     switch (node.type) {
       case 'nested':
-        return `${offset}  ${node.key}: ${stylish(node.value, level + 1)}`;
+        return `${offset}  ${node.key}: ${formatStylish(node.value, level + 1)}`;
       case 'added':
         return `${offset}+ ${node.key}: ${stringify(node.value, level + 1)}`;
       case 'deleted':
@@ -42,4 +42,8 @@ export default function stylish(diffOutput, level = 1) {
   return [
     '{', ...rows, `${bracketOffset}}`,
   ].join('\n');
+}
+
+export default function stylish(diffOutput) {
+  return formatStylish(diffOutput, 1);
 }
